@@ -5,24 +5,11 @@
 </ion-header>
 
 <ion-content>
-  <div #viewerContainer class="viewer-container">
-    <div #viewer class="viewer">
-      <ng-container #pagesContainer>
-        <div #pageContainer class="page" [style.width.px]="pageContainerUnique.width"
-          [style.height.px]="pageContainerUnique.height">
-
-          <div class="canvas-wrapper" #canvasWrapper>
-            <canvas class="page-canvas" #canvas></canvas>
-
-          </div>
-          <div #textContainer class="text-layer selectable">
-          </div>
-        </div>
-      </ng-container>
-    </div>
-  </div>
-  <div class="btn-direction-container">
-    <ion-button (click)="prevPage()" expand="full"><ion-icon name="arrow-back"></ion-icon></ion-button>
-    <ion-button (click)="nextPage()" expand="full"><ion-icon name="arrow-forward"></ion-icon></ion-button>
-  </div>
+  <pdf-viewer
+    [src]="pdfsrc"
+    [show-all]="true"
+    [original-size]="false"
+    [zoom]="1.0"
+    style="display: block">
+  </pdf-viewer>
 </ion-content>
