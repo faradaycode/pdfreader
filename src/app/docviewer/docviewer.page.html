@@ -1,6 +1,14 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>docviewer</ion-title>
+  <ion-toolbar class="darkmacha">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-no-padding ion-text-uppercase">{{titletool}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="printDocs(param)">
+        <ion-icon slot="icon-only" name="print"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -8,6 +16,7 @@
   <pdf-viewer
     [src]="pdfsrc"
     [show-all]="true"
+    [fit-to-page]="true"
     [original-size]="false"
     [zoom]="1.0"
     style="display: block">

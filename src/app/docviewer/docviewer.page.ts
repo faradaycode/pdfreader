@@ -1,5 +1,8 @@
+import { Printer } from '@ionic-native/printer/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { SharingvoidService } from '../sharingvoid.service';
 
 @Component({
   selector: 'app-docviewer',
@@ -9,9 +12,21 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 export class DocviewerPage implements OnInit {
   pdfsrc: string;
-  constructor(private file: File) { }
+  param: string;
+  titletool: string;
+
+  constructor(private route: ActivatedRoute, 
+    private me: SharingvoidService) { 
+    this.param = this.route.snapshot.paramMap.get('id');
+  }
 
   ngOnInit() {
-    this.pdfsrc = "/assets/docs/soal_mtk_2014.pdf";
+    console.log(this.param);
+    this.pdfsrc = "/assets/docs/" + this.param + ".pdf";
+    this.titletool = this.param.replace(/_/g, " ");
+  }
+
+  printDocs(filename: string) {
+    this.me.printFile(filename + ".pdf");
   }
 }

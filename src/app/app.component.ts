@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
@@ -12,7 +13,8 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private router: Router
   ) {
     this.initializeApp();
   }
@@ -27,5 +29,15 @@ export class AppComponent {
 
       this.splashScreen.hide();
     });
+
+    this.platform.backButton.subscribe(()=>{
+      if (this.router.url === "/home/mtk") {
+        navigator['app'].exitApp();
+      }
+
+      if (this.router.url === "/home/ipa" || this.router.url === "/home/theinfo") {
+        this.router.navigateByUrl('/home/mtk');
+      }
+    })
   }
 }
