@@ -3,7 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', loadChildren: './home/home.module#HomePageModule' },
-  { path: 'docviewer', loadChildren: './docviewer/docviewer.module#DocviewerPageModule' }
+  { path: 'docviewer/:id', loadChildren: './docviewer/docviewer.module#DocviewerPageModule' }
 ];
 
 @NgModule({
