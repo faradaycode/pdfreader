@@ -11,12 +11,12 @@
             </ion-row>
             <ion-row>
               <ion-col>
-                <ion-button size="small" fill="clear">
+                <ion-button size="small" fill="clear" (click)="openDoc('un_ipa_' + item)">
                   Soal
                 </ion-button>
               </ion-col>
               <ion-col>
-                <ion-button size="small" fill="clear">
+                <ion-button size="small" fill="clear" (click)="openDoc('bahas_ipa_' + item)">
                   Pembahasan
                 </ion-button>
               </ion-col>
