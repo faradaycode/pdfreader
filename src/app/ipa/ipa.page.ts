@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { Printer } from '@ionic-native/printer/ngx';
@@ -17,8 +18,7 @@ export class IpaPage implements OnInit {
 
   constructor(
     private file: File, 
-    private platform: Platform,
-    private printer: Printer,
+    private router: Router,
     private me: SharingvoidService) { }
 
   ngOnInit() {
@@ -28,6 +28,11 @@ export class IpaPage implements OnInit {
 
   printDocs(filename:string) {
     this.me.printFile(filename + this.ext);
+  }
+
+  openDoc(filename: string) {
+    this.router.navigateByUrl('/docviewer/' + filename);
+    console.log(filename);
   }
 
 }
