@@ -1,9 +1,5 @@
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Platform } from '@ionic/angular';
-import { Printer } from '@ionic-native/printer/ngx';
 import { SharingvoidService } from '../sharingvoid.service';
-import { File } from '@ionic-native/file/ngx';
 
 @Component({
   selector: 'app-ipa',
@@ -11,28 +7,19 @@ import { File } from '@ionic-native/file/ngx';
   styleUrls: ['./ipa.page.scss'],
 })
 export class IpaPage implements OnInit {
+  bYears: any;
 
-  private filepath:string;
-  private ext:string = ".pdf";
-  mYears: any = [];
-
-  constructor(
-    private file: File, 
-    private router: Router,
-    private me: SharingvoidService) { }
+  constructor(private me: SharingvoidService) { }
 
   ngOnInit() {
-    this.filepath = this.file.applicationDirectory + 'www/assets/docs/';
-    this.mYears = ["2014", "2015", "2016", "2017", "2018"];
+    this.bYears = this.me.mYears;
   }
 
-  printDocs(filename:string) {
-    this.me.printFile(filename + this.ext);
+  printIpa(filename:string) {
+    this.me.printFile(filename + ".pdf");
   }
 
-  openDoc(filename: string) {
-    this.router.navigateByUrl('/docviewer/' + filename);
-    console.log(filename);
+  openIpa(filename: string) {
+    this.me.viewDocument(filename);
   }
-
 }
