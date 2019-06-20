@@ -30,7 +30,11 @@ export class AppComponent {
     });
 
     this.platform.backButton.subscribe(() => {
-      navigator["app"].exitApp();
+      if (this.router.url === "/home/mtk" || this.router.url === "/home/ipa" || this.router.url === "/home/theinfo") {
+        navigator["app"].exitApp();
+      } else {
+        this.router.navigate(["/"]);
+      }
     });
   }
 }
