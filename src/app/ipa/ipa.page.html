@@ -1,9 +1,9 @@
 <ion-content>
     <div class="container">
-      <ion-card *ngFor="let item of mYears">
+      <ion-card *ngFor="let item of bYears">
         <ion-item>
           <ion-thumbnail slot="start">
-              <img src="/assets/icon/folder.svg">
+              <img src="/assets/icon/ipa.svg">
           </ion-thumbnail>
           <ion-grid>
             <ion-row>
@@ -11,12 +11,12 @@
             </ion-row>
             <ion-row>
               <ion-col>
-                <ion-button size="small" fill="clear" (click)="openDoc('un_ipa_' + item)">
+                <ion-button size="small" fill="clear" (click)="openIpa('un_ipa_' + item)">
                   Soal
                 </ion-button>
               </ion-col>
               <ion-col>
-                <ion-button size="small" fill="clear" (click)="openDoc('bahas_ipa_' + item)">
+                <ion-button size="small" fill="clear" (click)="openIpa('bahas_ipa_' + item)">
                   Pembahasan
                 </ion-button>
               </ion-col>
