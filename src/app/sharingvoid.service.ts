@@ -2,15 +2,19 @@ import { File } from '@ionic-native/file/ngx';
 import { PrintOptions, Printer } from '@ionic-native/printer/ngx';
 import { ToastController } from '@ionic/angular';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharingvoidService {
 
+  public mYears:any = ["2014", "2015", "2016", "2017", "2018"];
+  
   constructor(
     private toaster: ToastController,
     private file: File,
+    private router: Router,
     private printer: Printer) { }
 
   public async openToast(message:string) {
@@ -42,4 +46,7 @@ export class SharingvoidService {
       });
     }
     
+    public viewDocument(filename:string) {
+      this.router.navigateByUrl('/docviewer/' + filename);
+    }
   }
