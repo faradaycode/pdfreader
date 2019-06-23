@@ -1,8 +1,5 @@
 import { SharingvoidService } from "./../sharingvoid.service";
 import { Component, OnInit } from "@angular/core";
-import { File } from "@ionic-native/file/ngx";
-import { Printer, PrintOptions } from "@ionic-native/printer/ngx";
-import { Router } from "@angular/router";
 
 @Component({
   selector: "app-mtk",
@@ -26,4 +23,3 @@ export class MtkPage implements OnInit {
     this.me.printFile(filename + ".pdf");
   }
 }
- 

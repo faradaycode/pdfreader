@@ -1,3 +1,4 @@
+import { AppRate } from '@ionic-native/app-rate/ngx';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -8,6 +9,7 @@ import { IonicModule } from '@ionic/angular';
 import { DocviewerPage } from './docviewer.page';
 
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+
 
 const routes: Routes = [
   {
@@ -23,6 +25,9 @@ const routes: Routes = [
     IonicModule,
     PdfViewerModule,    
     RouterModule.forChild(routes)
+  ],
+  providers: [
+    AppRate
   ],
   declarations: [DocviewerPage]
 })

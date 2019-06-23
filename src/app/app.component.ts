@@ -1,3 +1,5 @@
+import { AppRate } from "@ionic-native/app-rate/ngx";
+import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
 import { Router } from "@angular/router";
 import { Component } from "@angular/core";
 
@@ -14,7 +16,8 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private router: Router
+    private router: Router,
+    private orientation: ScreenOrientation
   ) {
     this.initializeApp();
   }
@@ -25,12 +28,18 @@ export class AppComponent {
       this.statusBar.overlaysWebView(false);
       // set status bar to white
       this.statusBar.backgroundColorByHexString("#2e7c5a");
-
+      //set potrait
+      this.orientation.lock(this.orientation.ORIENTATIONS.PORTRAIT);
+      //hide splash
       this.splashScreen.hide();
     });
 
     this.platform.backButton.subscribe(() => {
-      if (this.router.url === "/home/mtk" || this.router.url === "/home/ipa" || this.router.url === "/home/theinfo") {
+      if (
+        this.router.url === "/home/mtk" ||
+        this.router.url === "/home/ipa" ||
+        this.router.url === "/home/theinfo"
+      ) {
         navigator["app"].exitApp();
       } else {
         this.router.navigate(["/"]);

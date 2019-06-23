@@ -13,6 +13,8 @@ import { DocumentViewer } from '@ionic-native/document-viewer/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx'
 import { Printer } from '@ionic-native/printer/ngx';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+import { AppRate } from '@ionic-native/app-rate/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,6 +31,8 @@ import { Printer } from '@ionic-native/printer/ngx';
     File,
     FileOpener,
     Printer,
+    ScreenOrientation,
+    AppRate,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
