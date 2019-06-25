@@ -13,12 +13,11 @@
 </ion-header>
 
 <ion-content>
-  <pdf-viewer
-    [src]="pdfsrc"
-    [show-all]="true"
-    [fit-to-page]="true"
-    [original-size]="false"
-    [zoom]="1.0"
-    style="display: block">
-  </pdf-viewer>
+  
+  <pinch-zoom>
+    <pdf-viewer [src]="pdfsrc" [show-all]="true" [fit-to-page]="true" [original-size]="false" [zoom]="1.0"
+      style="display: block">
+    </pdf-viewer>
+  </pinch-zoom>
+
 </ion-content>
