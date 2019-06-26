@@ -15,11 +15,7 @@ export class MtkPage implements OnInit {
     this.mYears = this.me.mYears;
   }
 
-  openMtk(filename: string) {
-    this.me.viewDocument(filename);
-  }
-
-  printMtk(filename: string) {
-    this.me.printFile(filename + ".pdf");
+  openMtk(filename: string, tag: string) {
+    this.me.viewDocument(filename, tag);
   }
 }

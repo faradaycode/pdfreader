@@ -46,7 +46,7 @@ export class SharingvoidService {
       });
     }
     
-    public viewDocument(filename:string) {
-      this.router.navigateByUrl('/docviewer/' + filename);
+    public viewDocument(filename:string, tag: string) {
+      this.router.navigate(['/docviewer', {doc: filename, tag: tag}]);
     }
   }

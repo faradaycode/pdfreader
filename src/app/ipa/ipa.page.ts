@@ -15,11 +15,7 @@ export class IpaPage implements OnInit {
     this.bYears = this.me.mYears;
   }
 
-  printIpa(filename:string) {
-    this.me.printFile(filename + ".pdf");
-  }
-
-  openIpa(filename: string) {
-    this.me.viewDocument(filename);
+  openIpa(filename: string, tag: string) {
+    this.me.viewDocument(filename, tag);
   }
 }
