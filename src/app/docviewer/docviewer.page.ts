@@ -10,7 +10,8 @@ import { SharingvoidService } from "../sharingvoid.service";
 })
 export class DocviewerPage implements OnInit {
   pdfsrc: string;
-  param: string;
+  param_file: string;
+  param_tag: string;
   titletool: string;
   appname: string;
 
@@ -19,12 +20,13 @@ export class DocviewerPage implements OnInit {
     private me: SharingvoidService,
     private appRate: AppRate
   ) {
-    this.param = this.route.snapshot.paramMap.get("id");
+    this.param_file = this.route.snapshot.paramMap.get("doc");
+    this.param_tag = this.route.snapshot.paramMap.get("tag");    
   }
 
   ngOnInit() {
-    this.pdfsrc = "/assets/docs/" + this.param + ".pdf";
-    this.titletool = this.param.replace(/_/g, " ");
+    this.pdfsrc = "/assets/docs/" + this.param_file + ".pdf";
+    this.titletool = this.param_file.replace(/_/g, " ");
 
     this.appRate.preferences = {
       displayAppName: "Soal Bahas UN MIPA SMP",
